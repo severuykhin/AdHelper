@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.ui.menu {
+  border-radius: 0px;
+}
+
+.ui.inverted.menu .item {
+  padding: 0;
+}
+
+.ui.inverted.menu .item a {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.ui.inverted.menu .item a:hover {
+  background: #348acc;
+}
+
+.content {
+  padding-top: 30px;
+}
