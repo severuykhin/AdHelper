@@ -4,5 +4,4 @@ import thunk from 'redux-thunk';
 import reducer, { browserRouterMiddleware } from './reducer';
 
 const store = createStore(reducer, applyMiddleware(logger, thunk, browserRouterMiddleware));
-
 export default store;

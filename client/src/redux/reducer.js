@@ -5,10 +5,14 @@ import {
 	routerMiddleware
   } from "react-router-redux";
 
+import bannersReducer, { moduleName as bannersModule } from '../ducks/banners';
+
+
 export const history = createHistory();
 
 export const browserRouterMiddleware = routerMiddleware(history);
 
 export default combineReducers({
+	[bannersModule] : bannersReducer,
 	router
 });

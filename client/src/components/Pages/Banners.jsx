@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 
 import BannersNav from './Banners/BannersNav';
 import BannersContent from './Banners/BannersContent';
 
-import { categories } from '../../config/banner-categories';
-
 class Banners extends Component {
+
 	render() {
+
+		const { categories } = this.props;
+
 		return (
 			<div className="banners content">
 				<div className="container">
@@ -30,4 +31,4 @@ class Banners extends Component {
 	}
 }
 
-export default withRouter(connect()(Banners));
+export default connect()(Banners);

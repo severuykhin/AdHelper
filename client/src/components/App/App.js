@@ -4,7 +4,7 @@ import {Switch,
         BrowserRouter} from 'react-router-dom';
 
 import Index from '../Pages/Index';
-import Banners from '../Pages/Banners';
+import Banners from '../Pages/BannersContainer';
 import Error from '../Pages/Error';
 import Header from '../Header/Header';
 

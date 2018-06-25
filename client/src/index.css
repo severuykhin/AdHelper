@@ -1,7 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .ui.menu {
@@ -27,4 +31,13 @@ body {
 
 .ui.vertical.menu {
   width: 100%;
+}
+
+a.item div.ui.teal.label {
+  background: #999 !important;
+}
+
+a.item.active div.ui.teal.label {
+  background: #00b5ad !important;
+  transition: background 200ms ease;
 }
