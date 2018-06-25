@@ -24,3 +24,7 @@ body {
 .content {
   padding-top: 30px;
 }
+
+.ui.vertical.menu {
+  width: 100%;
+}
