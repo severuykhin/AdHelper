@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import BannersNav from './Banners/BannersNav';
-import BannersContent from './Banners/BannersContent';
+import BannersContentContainer from './Banners/BannersContentContainer';
 
 class Banners extends Component {
 
@@ -21,7 +21,7 @@ class Banners extends Component {
 						</div>
 
 						<div className="col-xs-12 col-lg-10">
-							<Route path='/banners/:category' component={BannersContent} />
+							<Route path='/banners/:category' component={BannersContentContainer} />
 						</div>
 
 					</div>

@@ -2,6 +2,9 @@ import { List, Record } from 'immutable';
 
 export const moduleName = 'banners';
 export const ACTION_SET_CATEGORIES = `${moduleName}/ACTION_SET_CATEGORIES`;
+export const ACTION_SET_ACTIVE_CATEGORY = `${moduleName}/ACTION_SET_ACTIVE_CATEGORY`;
+export const ACTION_SET_BANNERS    = `${moduleName}/ACTION_SET_BANNERS`;
+
 
 const categories = [
 	{
@@ -20,25 +23,44 @@ const categories = [
 
 const InitialState = new Record({
 	isLoading : false,
-	categories : new List(categories)
+	categories : new List(categories),
+	banners    : new List([])
 });
 
+/**
+ * Banners reducer
+ * @param {object} state - Current app state 
+ * @param {object} action - New data 
+ */
 export default function reducer (state = new InitialState(), action ) {
 	const { type, payload } = action;
-
-	console.log(action);
-
 	switch(type) {
 		case ACTION_SET_CATEGORIES:
 			return state
 					.set('categories', new List(payload))
+		case ACTION_SET_BANNERS:
+			return state
+					.set('banners', new List(payload));
 		default:
 			return state;
 	}
 };
 
-export const setCategories = (categories) => ({
+/**
+ * Set active categories action
+ * @param {array} categories - List of active categories 
+ */
+export const setCategories = categories => ({
 	type : ACTION_SET_CATEGORIES,
 	payload : categories
+});
+
+/**
+ * Set active banners action
+ * @param {array} banners 
+ */
+export const setBanners = (banners) => ({
+	type : ACTION_SET_BANNERS,
+	payload : banners
 });
 

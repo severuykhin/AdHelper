@@ -5,3 +5,5 @@ import reducer, { browserRouterMiddleware } from './reducer';
 
 const store = createStore(reducer, applyMiddleware(logger, thunk, browserRouterMiddleware));
 export default store;
+
+window.store = store;
