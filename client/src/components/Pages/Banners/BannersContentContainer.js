@@ -7,14 +7,59 @@ import BannersContent from './BannersContent';
 
 const fakeBanners = [
 	{
-		a : 1
-	}
+		id    : '1',
+		category_id : '1',
+		title : 'Первое объявление',
+		slug  : 'pervoe',
+		texttop : '',
+		type    : '1',
+		className : 'rsya-1',
+		img : '',
+		category :  {
+			name : 'rsya'
+		}
+	},
+	{
+		id    : '2',
+		category_id : '1',
+		title : 'Второе объявление',
+		slug  : 'vtoroe',
+		texttop : '',
+		img : '',
+		type    : '2',
+		className : 'rsya-2',
+		category :  {
+			name : 'rsya'
+		}
+	},
 ];
 
 const fakeBanners2 = [
 	{
-		a : 2
-	}
+		id    : '1',
+		category_id : '1',
+		title : 'lalala',
+		slug  : 'pervoe',
+		texttop : '',
+		img : '',
+		type    : '3',
+		className : 'rsya-1',
+		category :  {
+			name : 'google'
+		}
+	},
+	{
+		id    : '2',
+		category_id : '1',
+		title : 'lalala 2',
+		slug  : 'vtoroe',
+		texttop : '',
+		img : '',
+		type    : '4',
+		category :  {
+			name : 'google'
+		}
+	},
 ];
 
 /**
@@ -31,7 +76,7 @@ class BannersContentContainer extends Component {
 		const oldSlug = prevProps.match.params.category;
 		const currentSlug = this.props.match.params.category;
 		if (oldSlug !== currentSlug) {
-			this.props.setBanners(fakeBanners2);		
+			this.props.setBanners(fakeBanners);		
 		}
 	}
 
