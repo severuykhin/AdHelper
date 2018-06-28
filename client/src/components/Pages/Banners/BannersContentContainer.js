@@ -34,34 +34,6 @@ const fakeBanners = [
 	},
 ];
 
-const fakeBanners2 = [
-	{
-		id    : '1',
-		category_id : '1',
-		title : 'lalala',
-		slug  : 'pervoe',
-		texttop : '',
-		img : '',
-		type    : '3',
-		className : 'rsya-1',
-		category :  {
-			name : 'google'
-		}
-	},
-	{
-		id    : '2',
-		category_id : '1',
-		title : 'lalala 2',
-		slug  : 'vtoroe',
-		texttop : '',
-		img : '',
-		type    : '4',
-		category :  {
-			name : 'google'
-		}
-	},
-];
-
 /**
  * Represents Banners Content data provider
  */

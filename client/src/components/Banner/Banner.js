@@ -10,7 +10,7 @@ class Banner extends Component {
 		super(props);
 		this.fileUpload = React.createRef()
 	}
-
+	
 	handleChange = () => {
 		const file = this.fileUpload.current.files[0];
 		this.props.handleFileUpload(file);
@@ -18,25 +18,31 @@ class Banner extends Component {
 	
 	/**
 	 * Resolve image layout
+	 * @param { string } img - base64 img file content
 	 */
-	getImage = () => {
+	getImage = (img) => {
 
-		const { img } = this.props;
-		
-		let src    = img ? img : '/picture.svg',
-			bgSize = img ? 'cover' : '40px',
+		let src       = img ? img : '/picture.svg',
+			bgSize    = img ? 'cover' : '40px',
 			className = img ? 'banner__img-inner banner__img-inner_active' : 'banner__img-inner';
-		return <div className={className} style={{
-					backgroundImage : `url(${src})`,
-					backgroundSize : bgSize,
-				}}  />
+
+		return <div className={className} 
+					style={{
+						backgroundImage : `url(${src})`,
+						backgroundSize : bgSize}} 
+				/>
 	}
 
 
 	/**
 	 * Get banner file upload layout
+	 * @param { string } id - Banner uniq id
+	 * @param { boolean } img - Is img already set
 	 */
-	getFileUpload = (id) => {
+	getFileUpload = (id, img) => {
+
+		let loadText  = img ? 'Сменить изабражение' : 'Добавить изображение';  
+
 		return ( 
 			<label className="banner__file" htmlFor={id}>
 				<input 
@@ -44,21 +50,23 @@ class Banner extends Component {
 					id={id}
 					onChange={this.handleChange} 
 					type="file"/>
+					<span className="banner__loadText">{ loadText }</span>
 			</label>
 		)
 	}
 
 	render() {
 
-		const { id, type, category } = this.props;
+		const { id, type, category, img } = this.props;
+		const isImgSet = img ? true : false;
 		const className = `banner banner__${category.name}-${type}`;
 
 		return (
 			<div className={className}>
 				<div className="banner__inner">
 					<div className="banner__img">
-						{this.getImage()}
-						{this.getFileUpload(id)}
+						{this.getImage(img)}
+						{this.getFileUpload(id, isImgSet)}
 					</div>
 				</div>	
 			</div>
