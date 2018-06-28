@@ -6,14 +6,24 @@
 	position: absolute;
 	font-size: 12px;
 	top: 50%;
-	transform: translateY(-30%);
+	margin-top: -5px;
 	width: 100%;
 	text-align: center;
 	color: #fff;
 	font-weight: 600;
 	z-index: 2;
-	transition: opacity 200ms ease, transform 200ms ease;
 	opacity: 0;
+}
+
+.banner__loadText:nth-child(2) {
+	transform: translateY(10px);
+	transition: opacity 200ms ease, transform 300ms ease;
+}
+.banner__loadText:last-child {
+	transition: opacity 200ms ease, transform 400ms ease;
+	transform: translateY(10px);
+	top: 59%;
+	margin-top: 0;
 }
 
 .banner__img {
@@ -88,4 +98,14 @@
 
 .banner__rsya-1 .banner__inner {
 	display: flex;
+}
+
+@keyframes translateUp {
+	0% {
+		transform: translateY(10px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
 }

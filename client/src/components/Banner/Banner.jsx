@@ -41,7 +41,7 @@ class Banner extends Component {
 	 */
 	getFileUpload = (id, img) => {
 
-		let loadText  = img ? 'Сменить изабражение' : 'Добавить изображение';  
+		let loadText  = img ? 'Сменить' : 'Добавить';  
 
 		return ( 
 			<label className="banner__file" htmlFor={id}>
@@ -51,6 +51,7 @@ class Banner extends Component {
 					onChange={this.handleChange} 
 					type="file"/>
 					<span className="banner__loadText">{ loadText }</span>
+					<span className="banner__loadText">изображение</span>					
 			</label>
 		)
 	}
