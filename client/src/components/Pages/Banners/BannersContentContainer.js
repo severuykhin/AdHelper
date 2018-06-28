@@ -40,20 +40,35 @@ const fakeBanners = [
 class BannersContentContainer extends Component {
 
 
+	getSlug() {
+		return this.props.match.params.category;
+	}
+
 	componentDidMount = () => {
-		this.props.setBanners(fakeBanners);
+		this.props.setBanners({
+			category : this.getSlug(),
+			items    : fakeBanners 
+		});
 	}
 
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		const oldSlug = prevProps.match.params.category;
-		const currentSlug = this.props.match.params.category;
+		const currentSlug = this.getSlug();
 		if (oldSlug !== currentSlug) {
-			this.props.setBanners(fakeBanners);		
+			this.props.setBanners({
+				category : currentSlug,
+				items    : fakeBanners 
+			});		
 		}
 	}
 
 	render() {
-		const { banners } = this.props;
+
+		const slug = this.getSlug();
+		const banners = this.props.banners[slug];
+
+		// console.log(this.props.banners);
+
 		return (
 			<div>
 				<BannersContent items={banners} />	
@@ -63,7 +78,7 @@ class BannersContentContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-	banners : state.banners.get('banners').toJS()
+	banners : state.banners.toJS().banners().toJS()
 })
 
 const mapDispatchToProps = (dispatch) => ({

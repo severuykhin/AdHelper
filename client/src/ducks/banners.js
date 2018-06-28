@@ -24,7 +24,7 @@ const categories = [
 const InitialState = new Record({
 	isLoading : false,
 	categories : new List(categories),
-	banners    : new List([])
+	banners    : new Record({})
 });
 
 /**
@@ -39,8 +39,10 @@ export default function reducer (state = new InitialState(), action ) {
 			return state
 					.set('categories', new List(payload))
 		case ACTION_SET_BANNERS:
+			const bannersStore = state.get('banners')().toJS();
+			bannersStore[payload.category] = payload.items;
 			return state
-					.set('banners', new List(payload));
+					.set('banners', new Record(bannersStore));
 		default:
 			return state;
 	}
@@ -59,8 +61,10 @@ export const setCategories = categories => ({
  * Set active banners action
  * @param {array} banners 
  */
-export const setBanners = (banners) => ({
-	type : ACTION_SET_BANNERS,
-	payload : banners
-});
+export const setBanners = banners => {
+	return {
+		type : ACTION_SET_BANNERS,
+		payload : banners
+	}
+};
 
