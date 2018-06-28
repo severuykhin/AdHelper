@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import BannerContainer from '../../Banner/BannerContainer';
 
-class BannerContent extends Component {
+class BannersContent extends Component {
 
 	buildItems = (items) => {
 		return items.map( item => {
-			const {id, ...rest} = item;
-			return <BannerContainer key={id} {...rest}  />
+			const { id } = item;
+			return <BannerContainer key={id} {...item}  />
 		})
 	}
 
@@ -22,4 +22,4 @@ class BannerContent extends Component {
 	}
 }
 
-export default BannerContent;
+export default BannersContent;

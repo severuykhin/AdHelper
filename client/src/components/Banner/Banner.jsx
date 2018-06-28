@@ -57,7 +57,7 @@ class Banner extends Component {
 	}
 
 	render() {
-
+		
 		const { id, type, category, img } = this.props;
 		const isImgSet = img ? true : false;
 		const className = `banner banner__${category.name}-${type}`;

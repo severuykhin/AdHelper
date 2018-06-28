@@ -3,7 +3,8 @@ import { List, Record } from 'immutable';
 export const moduleName = 'banners';
 export const ACTION_SET_CATEGORIES = `${moduleName}/ACTION_SET_CATEGORIES`;
 export const ACTION_SET_ACTIVE_CATEGORY = `${moduleName}/ACTION_SET_ACTIVE_CATEGORY`;
-export const ACTION_SET_BANNERS    = `${moduleName}/ACTION_SET_BANNERS`;
+export const ACTION_SET_BANNERS = `${moduleName}/ACTION_SET_BANNERS`;
+export const ACTION_SET_IMAGE   = `${moduleName}/ACTION_SET_IMAGE`;
 
 
 const categories = [
@@ -24,7 +25,7 @@ const categories = [
 const InitialState = new Record({
 	isLoading : false,
 	categories : new List(categories),
-	banners    : new Record({})
+	banners    : {}
 });
 
 /**
@@ -39,10 +40,15 @@ export default function reducer (state = new InitialState(), action ) {
 			return state
 					.set('categories', new List(payload))
 		case ACTION_SET_BANNERS:
-			const bannersStore = state.get('banners')().toJS();
+			let bannersStore = {...state.get('banners')};
 			bannersStore[payload.category] = payload.items;
 			return state
-					.set('banners', new Record(bannersStore));
+					.set('banners', bannersStore);
+		case ACTION_SET_IMAGE:
+			let store = {...state.get('banners')};
+			store[payload.category] = payload.items;
+			return state
+					.set('banners', store);
 		default:
 			return state;
 	}
@@ -68,3 +74,23 @@ export const setBanners = banners => {
 	}
 };
 
+/**
+ * Set image data to single banner 
+ * @param {string} data Image base64 data
+ * @param {string} id - Banner id
+ * @param {string} slug - Banner category slug 
+ * @param {array} banners - Category banners 
+ */
+export const setImage = (data, id, slug, banners) => {
+	banners.forEach( banner => {
+		if(banner.id === id) banner.img = data;
+	});
+
+	return {
+		type    : ACTION_SET_IMAGE,
+		payload : {
+			category : slug,
+			items : banners
+		}
+	}
+}

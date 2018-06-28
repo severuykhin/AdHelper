@@ -5,8 +5,8 @@ import { setBanners } from '../../../ducks/banners';
 
 import BannersContent from './BannersContent';
 
-const fakeBanners = [
-	{
+const fakeBanners = {
+	rsya : [{
 		id    : '1',
 		category_id : '1',
 		title : 'Первое объявление',
@@ -31,8 +31,36 @@ const fakeBanners = [
 		category :  {
 			name : 'rsya'
 		}
-	},
-];
+	}],
+	vk : [
+		{
+			id    : '1',
+			category_id : '1',
+			title : 'Первое объявление',
+			slug  : 'pervoe',
+			texttop : '',
+			type    : '1',
+			className : 'vk-1',
+			img : '',
+			category :  {
+				name : 'vk'
+			}
+		},
+		{
+			id    : '2',
+			category_id : '1',
+			title : 'Второе объявление',
+			slug  : 'vtoroe',
+			texttop : '',
+			img : '',
+			type    : '2',
+			className : 'vk-2',
+			category :  {
+				name : 'vk'
+			}
+		}	
+	]
+}
 
 /**
  * Represents Banners Content data provider
@@ -45,19 +73,23 @@ class BannersContentContainer extends Component {
 	}
 
 	componentDidMount = () => {
+
+		const slug = this.getSlug();
+
 		this.props.setBanners({
-			category : this.getSlug(),
-			items    : fakeBanners 
+			category : slug,
+			items    : [...fakeBanners[slug]] 
 		});
 	}
 
 	componentDidUpdate(prevProps, prevState, snapshot) {
+		// console.log('update');
 		const oldSlug = prevProps.match.params.category;
 		const currentSlug = this.getSlug();
 		if (oldSlug !== currentSlug) {
 			this.props.setBanners({
 				category : currentSlug,
-				items    : fakeBanners 
+				items    : [...fakeBanners[currentSlug]] 
 			});		
 		}
 	}
@@ -66,8 +98,6 @@ class BannersContentContainer extends Component {
 
 		const slug = this.getSlug();
 		const banners = this.props.banners[slug];
-
-		// console.log(this.props.banners);
 
 		return (
 			<div>
@@ -78,7 +108,7 @@ class BannersContentContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-	banners : state.banners.toJS().banners().toJS()
+	banners : state.banners.banners
 })
 
 const mapDispatchToProps = (dispatch) => ({

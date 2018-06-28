@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Banner from './Banner';
 import Validator from '../../utils/Validator';
+import { setImage } from '../../ducks/banners';
 
 
 class BannerContainer extends Component {
@@ -29,6 +30,16 @@ class BannerContainer extends Component {
 	 */
 	updateImage(file) {
 
+		const reader = new FileReader();
+		const category = this.props.category.name;
+		const { id, banners, setImage } = this.props;
+
+		reader.onload = (e) => {
+			const data = e.currentTarget.result;			
+			setImage(data, id, category, banners[category]);
+		}
+
+		reader.readAsDataURL(file);
 	}
 
 	/**
@@ -36,6 +47,7 @@ class BannerContainer extends Component {
 	 * @param { array } errors
 	 */
 	updateErrors(errors) {
+		alert('Ошибка');
 		console.log(errors);
 	}
 
@@ -45,11 +57,11 @@ class BannerContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-
+	banners : state.banners.banners 
 });
 
 const mapDispatchToProps = dispatch => ({
-	// setErrors : 
+	setImage : (data, id, slug, banners) => dispatch(setImage(data, id, slug, banners)) 
 });
 
 
