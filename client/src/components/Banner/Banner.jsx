@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './Banner.css';
 
 /**
@@ -40,25 +40,30 @@ class Banner extends Component {
 	 * @param { boolean } img - Is img already set
 	 */
 	getFileUpload = (id, img) => {
-
-		let loadText  = img ? 'Сменить' : 'Добавить';  
-
 		return ( 
-			<label className="banner__file" htmlFor={id}>
-				<input 
-					ref={this.fileUpload} 
-					id={id}
-					onChange={this.handleChange} 
-					type="file"/>
-					<span className="banner__loadText">{ loadText }</span>
-					<span className="banner__loadText">изображение</span>					
-			</label>
+			<Fragment>
+				<button className="banner__button ui icon button">
+					<i aria-hidden="true" className="file image outline icon"></i>
+					<label className="banner__file" htmlFor={id}>
+					<input 
+						ref={this.fileUpload} 
+						id={id}
+						onChange={this.handleChange} 
+						type="file"/>
+					</label>
+				</button>
+
+				{ img && <button className="banner__button ui icon button">
+					<i aria-hidden="true" className="trash alternate outline icon"></i>
+				</button> }
+
+			</Fragment>
 		)
 	}
 
 	render() {
 		
-		const { id, type, category, img } = this.props;
+		const { id, type, category, img, title } = this.props;
 		const isImgSet = img ? true : false;
 		const className = `banner banner__${category.name}-${type}`;
 
@@ -69,6 +74,7 @@ class Banner extends Component {
 						{this.getImage(img)}
 						{this.getFileUpload(id, isImgSet)}
 					</div>
+					<div className="banner__title"><span>{ title }</span></div>
 				</div>	
 			</div>
 		);

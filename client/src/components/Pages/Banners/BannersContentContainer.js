@@ -22,7 +22,7 @@ const fakeBanners = {
 	{
 		id    : '2',
 		category_id : '1',
-		title : 'Второе объявление',
+		title : 'РСЯ большой баннер 355px-290px. Жми ёкарны-бабай!',
 		slug  : 'vtoroe',
 		texttop : '',
 		img : '',

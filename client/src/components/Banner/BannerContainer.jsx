@@ -12,6 +12,8 @@ class BannerContainer extends Component {
 	 * @param { object } file - Uploaded file instance 
 	 */
 	handleFileUpload = (file) => {
+
+		if(!file) return false;
 		
 		const validator = new Validator();
 		const validation = validator.checkFile(file);
