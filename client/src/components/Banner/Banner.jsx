@@ -12,15 +12,20 @@ class Banner extends Component {
 	}
 	
 	handleChange = () => {
+		console.log('handle change');
 		const file = this.fileUpload.current.files[0];
 		this.props.handleFileUpload(file);
+	}
+
+	handleDeleteClick = () => {
+		this.props.handleDeleteFile();
 	}
 	
 	/**
 	 * Resolve image layout
 	 * @param { string } img - base64 img file content
 	 */
-	getImage = (img) => {
+	getImage = img => {
 
 		let src       = img ? img : '/picture.svg',
 			bgSize    = img ? 'cover' : '40px',
@@ -31,6 +36,15 @@ class Banner extends Component {
 						backgroundImage : `url(${src})`,
 						backgroundSize : bgSize}} 
 				/>
+	}
+
+
+	/**
+	 * Get banner url layout
+	 * @param { string } url - Banner url
+	 */
+	getUrl = url => {
+		return <div className="banner__url">{ url }</div>
 	}
 
 
@@ -53,9 +67,12 @@ class Banner extends Component {
 					</label>
 				</button>
 
-				{ img && <button className="banner__button ui icon button">
-					<i aria-hidden="true" className="trash alternate outline icon"></i>
-				</button> }
+				{ img && 
+					<button
+						onClick={this.props.handleDelete}
+						className="banner__button ui icon button">
+						<i aria-hidden="true" className="trash alternate outline icon"></i>
+					</button> }
 
 			</Fragment>
 		)
@@ -63,7 +80,7 @@ class Banner extends Component {
 
 	render() {
 		
-		const { id, type, category, img, title } = this.props;
+		const { id, type, category, img, title, url } = this.props;
 		const isImgSet = img ? true : false;
 		const className = `banner banner__${category.name}-${type}`;
 
@@ -74,7 +91,10 @@ class Banner extends Component {
 						{this.getImage(img)}
 						{this.getFileUpload(id, isImgSet)}
 					</div>
-					<div className="banner__title"><span>{ title }</span></div>
+					<div className="banner__info">
+						<div className="banner__title"><span>{ title }</span></div>
+						{ url && this.getUrl(url) }
+					</div>
 				</div>	
 			</div>
 		);

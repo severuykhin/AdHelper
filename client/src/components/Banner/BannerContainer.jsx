@@ -13,6 +13,8 @@ class BannerContainer extends Component {
 	 */
 	handleFileUpload = (file) => {
 
+		console.log('file upload');
+
 		if(!file) return false;
 		
 		const validator = new Validator();
@@ -23,7 +25,13 @@ class BannerContainer extends Component {
 		} else {
 			this.updateErrors(validation.errors);	
 		}
+	}
 
+	/**
+	 * Handles removing file from view box on button click
+	 */
+	handleDeleteFile = () => {
+		this.setImageData(null);
 	}
 
 	/**
@@ -33,15 +41,22 @@ class BannerContainer extends Component {
 	updateImage(file) {
 
 		const reader = new FileReader();
-		const category = this.props.category.name;
-		const { id, banners, setImage } = this.props;
 
 		reader.onload = (e) => {
 			const data = e.currentTarget.result;			
-			setImage(data, id, category, banners[category]);
+			this.setImageData(data);
 		}
 
 		reader.readAsDataURL(file);
+	}
+
+	/**
+	 * @param { string }  data - Base64 image data or empty string
+	 */
+	setImageData = (data) => {
+		const category = this.props.category.name;
+		const { id, banners, setImage } = this.props;
+		setImage(data, id, category, banners[category]);
 	}
 
 	/**
@@ -54,7 +69,10 @@ class BannerContainer extends Component {
 	}
 
 	render() {
-		return <Banner handleFileUpload={this.handleFileUpload} {...this.props} />
+		return <Banner 
+					handleFileUpload={this.handleFileUpload} 
+					handleDelete={this.handleDeleteFile}
+					{...this.props} />
 	}
 }
 

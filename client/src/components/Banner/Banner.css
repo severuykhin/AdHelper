@@ -120,6 +120,24 @@
 	display: flex;
 }
 
+.banner__rsya-1 .banner__info {
+	padding: 15px;
+}
+
+.banner__rsya-1 .banner__title {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.banner__rsya-1 .banner__url {
+	position: absolute;
+	bottom: 15px;
+	padding: 2px 10px 4px 10px;
+	font-size: 12px;
+	border: 1px solid #000;
+	border-radius: 3px;
+}
+
 /* РСЯ тип - 2 */
 
 .banner__rsya-2 {
@@ -138,14 +156,23 @@
 	height: 290px;
 }
 
+.banner__url {
+	position: relative;
+	z-index: 2;
+}
+
+.banner__info {
+	position: relative;
+}
+
 .banner__rsya-2 .banner__inner {
 	position: relative;
 }
 
 .banner__rsya-2 .banner__title {
-	position: absolute;
-	top: 20px;
-	left: 20px;
+	position: relative;
+	/* top: 20px; */
+	/* left: 20px; */
 	z-index: 2;
 	font-size: 14px;
 	font-weight: 500;
@@ -161,6 +188,26 @@
 	padding: 2px;
 	line-height: 25px;
 	border-radius: 3px;
+}
+
+.banner__rsya-2 .banner__info {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: 20px;
+}
+
+.banner__rsya-2 .banner__url {
+	position: absolute;
+	bottom: 20px;
+	background: black;
+	color: #fff;
+	padding: 2px 15px 4px 15px;
+	border-radius: 20px;
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.281);
+	font-size: 15px;
 }
 
 @keyframes translateUp {
