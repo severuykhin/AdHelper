@@ -17,12 +17,12 @@ const Header = () => {
 
 					<Menu.Menu position='right'>
 						<Menu.Item >
-							<NavLink to='/login'>Войти</NavLink>											
+							<NavLink to='/user/login'>Войти</NavLink>											
 						</Menu.Item>
 
-						<Menu.Item >
-							<NavLink to='/signup'>Регистрация</NavLink>											
-						</Menu.Item>
+						{/* <Menu.Item >
+							<NavLink to='/user/register'>Регистрация</NavLink>											
+						</Menu.Item> */}
 					</Menu.Menu>
 				</div>
 			</Menu>

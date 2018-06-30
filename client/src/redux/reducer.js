@@ -5,7 +5,10 @@ import {
 	routerMiddleware
   } from "react-router-redux";
 
+import { reducer as form } from 'redux-form';
+
 import bannersReducer, { moduleName as bannersModule } from '../ducks/banners';
+import authReducer, { moduleName as authModule } from '../ducks/auth';
 
 
 export const history = createHistory();
@@ -14,5 +17,7 @@ export const browserRouterMiddleware = routerMiddleware(history);
 
 export default combineReducers({
 	[bannersModule] : bannersReducer,
-	router
+	[authModule]    : authReducer,
+	router,
+	form
 });

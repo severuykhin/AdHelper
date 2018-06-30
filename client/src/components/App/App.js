@@ -6,7 +6,7 @@ import {Switch,
 import Index   from '../Pages/Index';
 import Banners from '../Pages/BannersContainer';
 import Error   from '../Pages/Error';
-import Login   from '../Pages/Login';
+import User    from '../Pages/User';
 import Header  from '../Header/Header';
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
               <Route path="/" exact component={Index} />
               <Route path="/banners" exact component={Banners} />
 							<Route path='/banners/:category' component={Banners} />
-              <Route path='/login' component={Login} />              
+              <Route path='/user/:action' component={User} />              
               <Route component={Error} />
             </Switch>
 
