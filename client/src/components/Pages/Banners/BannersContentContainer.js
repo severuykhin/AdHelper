@@ -33,7 +33,22 @@ const fakeBanners = {
 		category :  {
 			name : 'rsya'
 		}
-	}],
+	},
+	{
+		id    : '3',
+		category_id : '1',
+		title : 'Название 3',
+		slug  : 'tretie',
+		url     : 'site.ru',
+		texttop : '',
+		img : '',
+		type    : '3',
+		className : 'rsya-3',
+		category :  {
+			name : 'rsya'
+		}
+	}
+],
 	vk : [
 		{
 			id    : '1',

@@ -13,8 +13,6 @@ class BannerContainer extends Component {
 	 */
 	handleFileUpload = (file) => {
 
-		console.log('file upload');
-
 		if(!file) return false;
 		
 		const validator = new Validator();

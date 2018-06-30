@@ -12,7 +12,6 @@ class Banner extends Component {
 	}
 	
 	handleChange = () => {
-		console.log('handle change');
 		const file = this.fileUpload.current.files[0];
 		this.props.handleFileUpload(file);
 	}
@@ -56,16 +55,14 @@ class Banner extends Component {
 	getFileUpload = (id, img) => {
 		return ( 
 			<Fragment>
-				<button className="banner__button ui icon button">
-					<i aria-hidden="true" className="file image outline icon"></i>
-					<label className="banner__file" htmlFor={id}>
-					<input 
-						ref={this.fileUpload} 
-						id={id}
-						onChange={this.handleChange} 
-						type="file"/>
+					<label className="banner__file banner__button ui icon button" htmlFor={id}>
+						<i aria-hidden="true" className="file image outline icon"></i>
+						<input 
+							ref={this.fileUpload} 
+							id={id}
+							onChange={this.handleChange} 
+							type="file"/>
 					</label>
-				</button>
 
 				{ img && 
 					<button
