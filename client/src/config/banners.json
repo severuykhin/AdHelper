@@ -11,6 +11,7 @@
 		"img" : "",
 		"imgType" : 1,
 		"order"   : 3,
+		"text" : "",
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -25,6 +26,7 @@
 		"imgType" : 1,		
 		"type"    : "2",
 		"order"   : 1,		
+		"text" : "",		
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -37,7 +39,8 @@
 		"url"     : "site.ru",
 		"img" : "",
 		"imgType" : 1,
-		"order"   : 2,		
+		"order"   : 2,	
+		"text" : "",			
 		"type"    : "3",
 		"category" :  {
 			"name" : "rsya"
@@ -52,7 +55,38 @@
 		"img" : "",
 		"imgType" : 2,
 		"order"   : 4,
+		"text" : "Текст баннера в несколько строк. Lorem ipsum lorem ipsum",		
 		"type"    : "4",
+		"category" :  {
+			"name" : "rsya"
+		}
+	},
+	{
+		"id"    : "5",
+		"category_id" : "1",
+		"title" : "Название 5 - 645x160",
+		"slug"  : "fifth",
+		"url"     : "site.ru",
+		"img" : "",
+		"imgType" : 2,
+		"order"   : 5,
+		"text" : "Текст баннера в несколько строк. Lorem ipsum lorem ipsum",		
+		"type"    : "5",
+		"category" :  {
+			"name" : "rsya"
+		}
+	},
+	{
+		"id"    : "6",
+		"category_id" : "1",
+		"title" : "Название 6 - 240x115",
+		"slug"  : "six",
+		"url"     : "site.ru",
+		"img" : "",
+		"imgType" : 2,
+		"order"   : 6,
+		"text" : "Текст баннера в несколько строк.",		
+		"type"    : "6",
 		"category" :  {
 			"name" : "rsya"
 		}

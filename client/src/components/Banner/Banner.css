@@ -3,6 +3,7 @@
 	box-sizing: border-box;
 	float: left;
 	margin-right: 30px;
+	position: relative;
 }
 
 .banner__loadText {
@@ -20,12 +21,13 @@
 
 .banner__button {
 	position: absolute;
-	bottom: 2px;
+	bottom: -43px;
 	display: block;
 	z-index: 1;
 	width: 39px;
 	height: 36px;
 	border-radius: 50%;
+	opacity: 0;
 }
 
 .banner__button::before {
@@ -39,7 +41,8 @@
 	transition-timing-function: ease;
 }
 
-.banner__button:nth-child(2) {
+
+.banner__button {
 	transition: all .2s ease !important;
 }
 
@@ -56,8 +59,8 @@ button.banner__button.ui.button {
 	right: -5px;
 }
 
-.banner__button:nth-child(3) {
-	transition: all .25s ease !important;
+.banner__delete {
+	transition: all .4s ease !important;
 
 	left: 42px;	
 }
@@ -67,7 +70,7 @@ button.banner__button.ui.button {
 	box-sizing: border-box;
 }
 
-.banner__img input[type="file"] {
+.banner input[type="file"] {
 	display: none;
 }
 
@@ -90,10 +93,8 @@ button.banner__button.ui.button {
 	box-sizing: border-box;
 }
 
-.banner__inner:hover  .banner__button{
-
-	transform: translateY(42px);
-	/* opacity: 1; */
+.banner:hover  .banner__button{
+	opacity: 1;
 }
 
 .banner__file:hover::after {
@@ -182,8 +183,6 @@ button.banner__button.ui.button {
 
 .banner__rsya-2 .banner__title {
 	position: relative;
-	/* top: 20px; */
-	/* left: 20px; */
 	z-index: 2;
 	font-size: 14px;
 	font-weight: 500;
@@ -279,10 +278,12 @@ button.banner__button.ui.button {
 .banner__rsya-4 .banner__img {
 	width: 90px;
 	margin-right: 10px;
+	flex-shrink: 0;
 }
 
 .banner__rsya-4 .banner__img-inner {
 	width: 90px;
+	height: 90px;
 }
 
 .banner__rsya-4 img {
@@ -297,7 +298,13 @@ button.banner__button.ui.button {
 	font-size: 18px;
 	font-weight: 600;
 	text-decoration: underline;
-	margin-bottom: 8px;
+	margin-bottom: 2px;
+}
+
+.banner__rsya-4 .banner__text {
+	font-size: 13px;
+	font-weight: 500;
+	margin-bottom: 4px;
 }
 
 .banner__rsya-4 .banner__url {
@@ -308,6 +315,117 @@ button.banner__button.ui.button {
 .banner__rsya-4 .banner__file {
 	left: 0;
 }
+
+/* РСЯ тип - 5*/ 
+.banner__rsya-5 .banner__file {
+	left: 0;
+}
+
+.banner__rsya-5 {
+	width: 645px;
+	border: 1px solid rgb(204, 204, 204);
+	box-sizing: border-box;	
+}
+
+.banner__rsya-5 .banner__inner {
+	display: flex;
+}
+
+.banner__rsya-5 .banner__img {
+	width: 140px;
+}
+
+.banner__rsya-5 .banner__img img {
+	position: relative;
+	background-color: rgb(241, 238, 238);
+	z-index: 2;
+	width: 100%;
+}
+
+.banner__rsya-5 .banner__inner {
+	padding: 10px 10px 10px 0;
+}
+
+.banner__rsya-5 .banner__img {
+	margin-right: 40px;
+	flex-shrink: 0;
+}
+
+.banner__rsya-5 .banner__img-inner {
+	height: 90px;
+}
+
+.banner__rsya-5 .banner__title {
+	font-size: 18px;
+	color: #088DDC;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.banner__rsya-5 .banner__text {
+	font-size: 15px;
+	margin-bottom: 7px;
+}
+
+.banner__rsya-5 .banner__url {
+	font-weight: 500;
+	color: rgb(73, 170, 52);
+	font-size: 16px;
+}
+
+/* РСЯ тип - 6*/
+.banner__rsya-6 {
+	width: 240px;
+	border: 1px solid rgb(204, 204, 204);
+	box-sizing: border-box;	
+} 
+
+.banner__rsya-6 .banner__inner {
+	display: flex;
+	padding: 10px;
+}
+
+.banner__rsya-6 .banner__img {
+	max-width: 100px;
+	margin-right: 10px;
+	flex-shrink: 1;
+	width: auto;
+}
+
+.banner__rsya-6 .banner__img img {
+	width: 100%;
+}
+
+.banner__rsya-6 .banner__img-inner {
+	height: 100px;
+	width: 100px;
+}
+
+.banner__rsya-6 .banner__text {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.banner__rsya-6 .banner__url {
+	padding: 0px 10px 10px 10px;
+	color: #999;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.banner__rsya-6 .banner__title {
+	padding: 10px 10px 0 10px;
+	text-decoration: underline;
+	color: #088DDC;
+	font-weight: 600;
+}
+
+.banner__rsya-6 .banner__info {
+	flex-shrink: 1;
+}
+
+
+
 
 @keyframes translateUp {
 	0% {

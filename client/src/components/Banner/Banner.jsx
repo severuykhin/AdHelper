@@ -66,7 +66,7 @@ class Banner extends Component {
 				{ img && 
 					<button
 						onClick={this.props.handleDelete}
-						className="banner__button cilcular ui icon button">
+						className="banner__button banner__delete cilcular ui icon button">
 						<i aria-hidden="true" className="trash alternate outline icon"></i>
 					</button> }
 
@@ -76,22 +76,27 @@ class Banner extends Component {
 
 	render() {
 		
-		const { id, type, category, img, imgType, title, url } = this.props;
+		const { id, type, category, img, imgType, title, text, url } = this.props;
 		const isImgSet = img ? true : false;
 		const className = `banner banner__${category.name}-${type}`;
 
+		const metaInInfo = (type !== 6) && (category.name === 'rsya');
+
 		return (
 			<div className={className}>
+				{ title && !metaInInfo && <div className="banner__title"><span>{ title }</span></div>}				
 				<div className="banner__inner">
 					<div className="banner__img">
 						{this.getImage(img, imgType)}
-						{this.getFileUpload(id, isImgSet)}
 					</div>
 					<div className="banner__info">
-						<div className="banner__title"><span>{ title }</span></div>
-						{ url && this.getUrl(url) }
+						{ title && metaInInfo && <div className="banner__title"><span>{ title }</span></div>}
+						{ text && <div className="banner__text">{ text }</div> }
+						{ url && metaInInfo && this.getUrl(url) }
 					</div>
-				</div>	
+				</div>
+				{ url && !metaInInfo && this.getUrl(url) }
+				{this.getFileUpload(id, isImgSet)}													
 			</div>
 		);
 	}

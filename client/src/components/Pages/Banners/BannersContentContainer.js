@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { setBanners } from '../../../ducks/banners';
@@ -11,7 +11,6 @@ import banners from '../../../config/banners.json';
  * Represents Banners Content data provider
  */
 class BannersContentContainer extends Component {
-
 
 	getSlug() {
 		return this.props.match.params.category;
@@ -44,9 +43,10 @@ class BannersContentContainer extends Component {
 		const banners = this.props.banners[slug];
 
 		return (
-			<div>
-				<BannersContent items={banners} />	
-			</div>
+			<Fragment>
+				<BannersContent 
+					items={banners} />	
+			</Fragment>
 		);
 	}
 }

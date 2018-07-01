@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import BannerContainer from '../../Banner/BannerContainer';
+import BannersActions from './BannersActions';
 
 class BannersContent extends Component {
 
 	buildItems = (items) => {
 
 		const banners = [...items].sort( (a,b) => a.order > b.order );
-
-		console.log(banners);
 
 		return banners.map( item => {
 			const { id } = item;
@@ -20,9 +19,12 @@ class BannersContent extends Component {
 		const { items } = this.props;
 
 		return (
-			<div className="banners-content">
-				{items && this.buildItems(items)}					
-			</div>
+			<Fragment>
+				<BannersActions />
+				<div className="banners-content">
+					{items && this.buildItems(items)}					
+				</div>
+			</Fragment>
 		);
 	}
 }

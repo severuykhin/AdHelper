@@ -15,8 +15,16 @@ export default function getBannerTemplate(type) {
 					/>
 		},
 
+		/**
+		 * @param { string } src
+		 */
 		2 : (src, bgSize, className) => {
-			return <img alt="banner" src={src} />
+
+			let isPlaceHolder = src.search('picture.svg') >= 0;
+
+			return isPlaceHolder ? 
+					types[1](src, bgSize, className) : 
+					<img alt="banner" src={src} />;
 		}
 	}
 

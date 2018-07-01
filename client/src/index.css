@@ -73,6 +73,14 @@ a.item.active div.ui.teal.label {
   animation-delay: 200ms;
 }
 
+.banners__actions {
+  margin-bottom: 30px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
 @keyframes animateIn {
   0% {
     opacity: 0;
