@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './Banner.css';
+import getBannerTemplate from './bannerTemplates';
+
 
 /**
  * Represents single banner entity
@@ -23,18 +25,15 @@ class Banner extends Component {
 	/**
 	 * Resolve image layout
 	 * @param { string } img - base64 img file content
+	 * @param { number } type - Image display type
 	 */
-	getImage = img => {
+	getImage = (img, type) => {
 
 		let src       = img ? img : '/picture.svg',
 			bgSize    = img ? 'cover' : '40px',
 			className = img ? 'banner__img-inner banner__img-inner_active' : 'banner__img-inner';
 
-		return <div className={className} 
-					style={{
-						backgroundImage : `url(${src})`,
-						backgroundSize : bgSize}} 
-				/>
+		return getBannerTemplate(type)(src, bgSize, className);
 	}
 
 
@@ -55,7 +54,7 @@ class Banner extends Component {
 	getFileUpload = (id, img) => {
 		return ( 
 			<Fragment>
-					<label className="banner__file banner__button ui icon button" htmlFor={id}>
+					<label className="banner__file banner__button circular ui icon button" htmlFor={id}>
 						<i aria-hidden="true" className="file image outline icon"></i>
 						<input 
 							ref={this.fileUpload} 
@@ -67,7 +66,7 @@ class Banner extends Component {
 				{ img && 
 					<button
 						onClick={this.props.handleDelete}
-						className="banner__button ui icon button">
+						className="banner__button cilcular ui icon button">
 						<i aria-hidden="true" className="trash alternate outline icon"></i>
 					</button> }
 
@@ -77,7 +76,7 @@ class Banner extends Component {
 
 	render() {
 		
-		const { id, type, category, img, title, url } = this.props;
+		const { id, type, category, img, imgType, title, url } = this.props;
 		const isImgSet = img ? true : false;
 		const className = `banner banner__${category.name}-${type}`;
 
@@ -85,7 +84,7 @@ class Banner extends Component {
 			<div className={className}>
 				<div className="banner__inner">
 					<div className="banner__img">
-						{this.getImage(img)}
+						{this.getImage(img, imgType)}
 						{this.getFileUpload(id, isImgSet)}
 					</div>
 					<div className="banner__info">

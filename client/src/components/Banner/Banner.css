@@ -23,6 +23,7 @@
 	z-index: 1;
 	width: 39px;
 	height: 36px;
+	border-radius: 50%;
 }
 
 .banner__button::before {
@@ -38,6 +39,10 @@
 
 .banner__button:nth-child(2) {
 	transition: all .2s ease !important;
+}
+
+button.banner__button.ui.button {
+	border-radius: 50%;
 }
 
 .banner__button:nth-child(2)::after {
@@ -254,6 +259,52 @@
 
 .banner__rsya-3 .banner__url {
 	color: rgb(1, 112, 1);
+}
+
+/* РСЯ тип - 4 */
+.banner__rsya-4 {
+	width: 370px;
+	/* height: 140px; */
+	border: 1px solid rgb(204, 204, 204);
+	box-sizing: border-box;	
+}
+
+.banner__rsya-4 .banner__inner {
+	padding: 10px;
+	display: flex;
+}
+
+.banner__rsya-4 .banner__img {
+	width: 90px;
+	margin-right: 10px;
+}
+
+.banner__rsya-4 .banner__img-inner {
+	width: 90px;
+}
+
+.banner__rsya-4 img {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	background-color: rgb(241, 238, 238)
+}
+
+.banner__rsya-4 .banner__title {
+	color: #4F73BC;
+	font-size: 18px;
+	font-weight: 600;
+	text-decoration: underline;
+	margin-bottom: 8px;
+}
+
+.banner__rsya-4 .banner__url {
+	font-weight: 600;
+	color: #4F73BC;	
+}
+
+.banner__rsya-4 .banner__file {
+	left: 0;
 }
 
 @keyframes translateUp {
