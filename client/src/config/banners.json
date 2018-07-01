@@ -10,6 +10,7 @@
 		"className" : "rsya-1",
 		"img" : "",
 		"imgType" : 1,
+		"order"   : 3,
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -23,6 +24,7 @@
 		"img" : "",
 		"imgType" : 1,		
 		"type"    : "2",
+		"order"   : 1,		
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -35,6 +37,7 @@
 		"url"     : "site.ru",
 		"img" : "",
 		"imgType" : 1,
+		"order"   : 2,		
 		"type"    : "3",
 		"category" :  {
 			"name" : "rsya"
@@ -48,6 +51,7 @@
 		"url"     : "site.ru",
 		"img" : "",
 		"imgType" : 2,
+		"order"   : 4,
 		"type"    : "4",
 		"category" :  {
 			"name" : "rsya"
@@ -63,18 +67,20 @@
 			"url"     : "site.ru",
 			"type"    : "1",
 			"img" : "",
+			"order"   : 1,			
 			"imgType" : 1,			
 			"category" :  {
 				"name" : "vk"
 			}
 		},
 		{
-			"id"    : "2",
+			"id"       : "2",
 			"category_id" : "1",
-			"title" : "Второе объявление",
-			"slug"  : "vtoroe",
+			"title"   : "Второе объявление",
+			"slug"    : "vtoroe",
 			"url"     : "site.ru",
-			"img" : "",
+			"img"     : "",
+			"order"   : 2,		
 			"imgType" : 1,
 			"type"    : "2",
 			"category" :  {
