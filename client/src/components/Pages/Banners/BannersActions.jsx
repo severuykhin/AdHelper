@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Validator from '../../../utils/Validator';
+import { setImageToAll } from '../../../ducks/banners';
 
 class BannersActions extends Component {
 
@@ -29,7 +31,16 @@ class BannersActions extends Component {
 	 * @param { object } file - Uploaded file instance
 	 */
 	updateImage = file => {
-		console.log(file);
+
+		const reader = new FileReader();
+		const component = this;
+		const { category } = this.props;
+
+		reader.readAsDataURL(file);
+		
+		reader.onload = function () {
+			component.props.setImageToAll(this.result, category);
+		}
 	}
 
 	/**
@@ -59,4 +70,12 @@ class BannersActions extends Component {
 	}
 }
 
-export default BannersActions;
+const mapStateToProps = state => ({
+	// TO DO - map category to props from REDUX!
+});
+
+const mapDispatchToProps = dispatch => ({
+	setImageToAll : (data, category) => dispatch(setImageToAll(data, category))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BannersActions);

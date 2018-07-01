@@ -5,6 +5,7 @@ export const ACTION_SET_CATEGORIES = `${moduleName}/ACTION_SET_CATEGORIES`;
 export const ACTION_SET_ACTIVE_CATEGORY = `${moduleName}/ACTION_SET_ACTIVE_CATEGORY`;
 export const ACTION_SET_BANNERS = `${moduleName}/ACTION_SET_BANNERS`;
 export const ACTION_SET_IMAGE   = `${moduleName}/ACTION_SET_IMAGE`;
+export const ACTION_SET_IMAGE_TO_ALL  = `${moduleName}/ACTION_SET_IMAGE_TO_ALL`;
 
 
 const categories = [
@@ -49,6 +50,11 @@ export default function reducer (state = new InitialState(), action ) {
 			store[payload.category] = payload.items;
 			return state
 					.set('banners', store);
+		case ACTION_SET_IMAGE_TO_ALL:
+			const banners = {...state.get('banners')};
+			banners[payload.category].map( i => i.img = payload.data );
+			return state
+					.set('banners', banners)
 		default:
 			return state;
 	}
@@ -92,5 +98,19 @@ export const setImage = (data, id, slug, banners) => {
 			category : slug,
 			items : banners
 		}
+	}
+}
+
+/**
+ * Set given image data to all avalible banners
+ * @param { string } data  - base64 Image file content
+ */
+export const setImageToAll = (data, category) => {
+
+	console.log(category);
+
+	return {
+		type : ACTION_SET_IMAGE_TO_ALL,
+		payload : {data, category}
 	}
 }

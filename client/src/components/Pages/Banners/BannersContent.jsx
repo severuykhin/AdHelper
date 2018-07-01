@@ -16,11 +16,11 @@ class BannersContent extends Component {
 
 	render() {
 
-		const { items } = this.props;
+		const { items, category } = this.props;
 
 		return (
 			<Fragment>
-				<BannersActions />
+				<BannersActions category={ category } />
 				<div className="banners-content">
 					{items && this.buildItems(items)}					
 				</div>

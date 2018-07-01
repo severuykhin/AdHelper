@@ -45,6 +45,7 @@ class BannersContentContainer extends Component {
 		return (
 			<Fragment>
 				<BannersContent 
+					category={slug}
 					items={banners} />	
 			</Fragment>
 		);
