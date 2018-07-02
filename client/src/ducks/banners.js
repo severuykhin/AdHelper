@@ -1,19 +1,22 @@
 import { List, Record } from 'immutable';
 import categories from '../config/categories.json';
+import banners from '../config/banners.json';
+
 
 export const moduleName = 'banners';
-export const ACTION_SET_CATEGORIES = `${moduleName}/ACTION_SET_CATEGORIES`;
+export const ACTION_SET_CATEGORIES      = `${moduleName}/ACTION_SET_CATEGORIES`;
 export const ACTION_SET_ACTIVE_CATEGORY = `${moduleName}/ACTION_SET_ACTIVE_CATEGORY`;
-export const ACTION_SET_BANNERS = `${moduleName}/ACTION_SET_BANNERS`;
-export const ACTION_SET_IMAGE   = `${moduleName}/ACTION_SET_IMAGE`;
-export const ACTION_SET_IMAGE_TO_ALL  = `${moduleName}/ACTION_SET_IMAGE_TO_ALL`;
+export const ACTION_SET_BANNERS         = `${moduleName}/ACTION_SET_BANNERS`;
+export const ACTION_SET_IMAGE           = `${moduleName}/ACTION_SET_IMAGE`;
+export const ACTION_SET_IMAGE_TO_ALL    = `${moduleName}/ACTION_SET_IMAGE_TO_ALL`;
+export const ACTION_SET_IS_TOUCHED      = `${moduleName}/ACTION_SET_IS_TOUCHED`;
 
 const InitialState = new Record({
 	isLoading    : false,
 	isTouched    : false,
 	categories   : new List(categories),
 	categorySlug : '',
-	banners      : {}
+	banners      : banners
 });
 
 /**
@@ -30,13 +33,11 @@ export default function reducer (state = new InitialState(), action ) {
 			return state
 					.set('categories', new List(payload)); 
 
-		case ACTION_SET_BANNERS:
-			let bannersStore = {...state.get('banners')};
-			bannersStore[payload.banners.category] = payload.banners.items;
-			return state
-					.set('categorySlug', payload.banners.category)
-					.set('banners', bannersStore)
-					.set('isTouched', payload.isTouched);
+		case ACTION_SET_ACTIVE_CATEGORY:
+			return state.set('categorySlug', payload);
+
+		case ACTION_SET_IS_TOUCHED:
+			return state.set('isTouched', payload);
 
 		case ACTION_SET_IMAGE:
 			let store = {...state.get('banners')};
@@ -47,7 +48,6 @@ export default function reducer (state = new InitialState(), action ) {
 
 		case ACTION_SET_IMAGE_TO_ALL:
 			const banners = {...state.get('banners')};
-			
 			let isTouched = payload.data !== '';
 
 			banners[payload.category].map( i => i.img = payload.data );
@@ -62,7 +62,7 @@ export default function reducer (state = new InitialState(), action ) {
 
 /**
  * Set active categories action
- * @param {array} categories - List of active categories 
+ * @param { array } categories - List of active categories 
  */
 export const setCategories = categories => ({
 	type : ACTION_SET_CATEGORIES,
@@ -70,8 +70,17 @@ export const setCategories = categories => ({
 });
 
 /**
+ * Set active category slug
+ * @param { string } categorySlug - Active category slug 
+ */
+export const setCategorySlug = categorySlug => ({
+	type : ACTION_SET_ACTIVE_CATEGORY,
+	payload : categorySlug
+});
+
+/**
  * Set active banners action
- * @param {array} banners 
+ * @param { array } banners 
  */
 export const setBanners = banners => {
 
@@ -123,4 +132,19 @@ export const setImageToAll = (data, category) => {
 		type : ACTION_SET_IMAGE_TO_ALL,
 		payload : {data, category}
 	}
+}
+
+export const setIsTouched = (categoryBanners) => {
+
+	let isTouched = false;
+
+	[...categoryBanners].forEach( i => {
+		if (i.img !== '') isTouched = true;
+	});
+
+	return {
+		type : ACTION_SET_IS_TOUCHED,
+		payload : isTouched
+	}
+
 }

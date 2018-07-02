@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { setBanners } from '../../../ducks/banners';
+import { setCategorySlug,
+		 setIsTouched } from '../../../ducks/banners';
 
 import BannersContent from './BannersContent';
 import BannersActions from './BannersActions';
-
-import banners from '../../../config/banners.json';
 
 /**
  * Represents Banners Content data provider
@@ -18,23 +17,15 @@ class BannersContentContainer extends Component {
 	}
 
 	componentDidMount = () => {
-
-		const slug = this.getSlug();
-
-		this.props.setBanners({
-			category : slug,
-			items    : [...banners[slug]] 
-		});
+		this.props.setCategorySlug(this.getSlug());
 	}
 
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		const oldSlug = prevProps.match.params.category;
 		const currentSlug = this.getSlug();
 		if (oldSlug !== currentSlug) {
-			this.props.setBanners({
-				category : currentSlug,
-				items    : [...banners[currentSlug]] 
-			});		
+			this.props.setCategorySlug(currentSlug);
+			this.props.setIsTouched(this.props.banners[currentSlug]);		
 		}
 	}
 
@@ -50,7 +41,7 @@ class BannersContentContainer extends Component {
 					items={banners}>
 
 					<BannersActions />
-									
+
 				</BannersContent>	
 			</Fragment>
 		);
@@ -62,7 +53,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	setBanners : (banners) => dispatch(setBanners(banners))
+	setCategorySlug : (categorySlug)    => dispatch(setCategorySlug(categorySlug)),
+	setIsTouched    : (categoryBanners) => dispatch(setIsTouched(categoryBanners))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BannersContentContainer);
