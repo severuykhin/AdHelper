@@ -77,6 +77,11 @@ a.item.active div.ui.teal.label {
   margin-bottom: 30px;
 }
 
+.banners__actions-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 input[type="file"] {
   display: none;
 }

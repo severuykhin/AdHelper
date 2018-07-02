@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setBanners } from '../../../ducks/banners';
 
 import BannersContent from './BannersContent';
+import BannersActions from './BannersActions';
 
 import banners from '../../../config/banners.json';
 
@@ -46,7 +47,9 @@ class BannersContentContainer extends Component {
 			<Fragment>
 				<BannersContent 
 					category={slug}
-					items={banners} />	
+					items={banners}>
+					<BannersActions category={ slug } />				
+				</BannersContent>	
 			</Fragment>
 		);
 	}

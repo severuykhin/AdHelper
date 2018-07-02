@@ -1,4 +1,5 @@
 import { List, Record } from 'immutable';
+import categories from '../config/categories.json';
 
 export const moduleName = 'banners';
 export const ACTION_SET_CATEGORIES = `${moduleName}/ACTION_SET_CATEGORIES`;
@@ -7,24 +8,9 @@ export const ACTION_SET_BANNERS = `${moduleName}/ACTION_SET_BANNERS`;
 export const ACTION_SET_IMAGE   = `${moduleName}/ACTION_SET_IMAGE`;
 export const ACTION_SET_IMAGE_TO_ALL  = `${moduleName}/ACTION_SET_IMAGE_TO_ALL`;
 
-
-const categories = [
-	{
-		id    : 1,
-		count : 3,
-		name  : 'VK',
-		slug  : 'vk'
-	},
-	{
-		id    : 2,
-		count : 10,
-		name  : 'РСЯ',
-		slug  : 'rsya'
-	}
-];
-
 const InitialState = new Record({
 	isLoading : false,
+	isTouched : false,
 	categories : new List(categories),
 	banners    : {}
 });
@@ -36,25 +22,37 @@ const InitialState = new Record({
  */
 export default function reducer (state = new InitialState(), action ) {
 	const { type, payload } = action;
+
 	switch(type) {
+
 		case ACTION_SET_CATEGORIES:
 			return state
 					.set('categories', new List(payload))
+
 		case ACTION_SET_BANNERS:
 			let bannersStore = {...state.get('banners')};
-			bannersStore[payload.category] = payload.items;
+			bannersStore[payload.banners.category] = payload.banners.items;
 			return state
-					.set('banners', bannersStore);
+					.set('banners', bannersStore)
+					.set('isTouched', payload.isTouched);
+
 		case ACTION_SET_IMAGE:
 			let store = {...state.get('banners')};
 			store[payload.category] = payload.items;
 			return state
-					.set('banners', store);
+					.set('banners', store)
+					.set('isTouched', payload.isTouched);
+
 		case ACTION_SET_IMAGE_TO_ALL:
 			const banners = {...state.get('banners')};
+			
+			let isTouched = payload.data !== '';
+
 			banners[payload.category].map( i => i.img = payload.data );
 			return state
 					.set('banners', banners)
+					.set('isTouched', isTouched);
+
 		default:
 			return state;
 	}
@@ -74,9 +72,17 @@ export const setCategories = categories => ({
  * @param {array} banners 
  */
 export const setBanners = banners => {
+
+	let isTouched = false;
+
+	// Avoid mutation
+	[...banners].forEach( item => {
+		if (item.img !== '') isTouched = true;
+	});
+
 	return {
 		type : ACTION_SET_BANNERS,
-		payload : banners
+		payload : { banners, isTouched }
 	}
 };
 
@@ -88,15 +94,20 @@ export const setBanners = banners => {
  * @param {array} banners - Category banners 
  */
 export const setImage = (data, id, slug, banners) => {
+
+	let isTouched = false;
+
 	banners.forEach( banner => {
 		if(banner.id === id) banner.img = data;
+		if(banner.img !== '') isTouched = true;
 	});
 
 	return {
 		type    : ACTION_SET_IMAGE,
 		payload : {
 			category : slug,
-			items : banners
+			items : banners,
+			isTouched
 		}
 	}
 }
@@ -106,9 +117,6 @@ export const setImage = (data, id, slug, banners) => {
  * @param { string } data  - base64 Image file content
  */
 export const setImageToAll = (data, category) => {
-
-	console.log(category);
-
 	return {
 		type : ACTION_SET_IMAGE_TO_ALL,
 		payload : {data, category}

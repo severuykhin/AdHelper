@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import BannerContainer from '../../Banner/BannerContainer';
-import BannersActions from './BannersActions';
 
 class BannersContent extends Component {
 
@@ -16,13 +15,13 @@ class BannersContent extends Component {
 
 	render() {
 
-		const { items, category } = this.props;
+		const { items, children } = this.props;
 
 		return (
 			<Fragment>
-				<BannersActions category={ category } />
 				<div className="banners-content">
-					{items && this.buildItems(items)}					
+					{ children }
+					{ items && this.buildItems(items) }					
 				</div>
 			</Fragment>
 		);

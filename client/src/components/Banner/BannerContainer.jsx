@@ -29,7 +29,7 @@ class BannerContainer extends Component {
 	 * Handles removing file from view box on button click
 	 */
 	handleDeleteFile = () => {
-		this.setImageData(null);
+		this.setImageData('');
 	}
 
 	/**

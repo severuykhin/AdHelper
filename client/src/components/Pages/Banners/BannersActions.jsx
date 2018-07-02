@@ -27,6 +27,14 @@ class BannersActions extends Component {
 	}
 
 	/**
+	 * Clears all banners of active category
+	 */
+	handleClickClearAll = () => {
+		const { category } = this.props;		
+		this.props.setImageToAll('', category);
+	}
+
+	/**
 	 * Set new uploaded image to all banners in collection
 	 * @param { object } file - Uploaded file instance
 	 */
@@ -52,9 +60,12 @@ class BannersActions extends Component {
 	}
 
 	render() {
+
+		const { isTouched } = this.props;
+
 		return (
 			<div className="banners__actions">
-				<div className="banners__action-item banners__action-fill">
+				<div className="banners__actions-item banners__actions-fill">
 					<label htmlFor="fill-all" className="ui labeled icon button">
 						<i className="image icon"></i>
 						Заполнить все
@@ -65,13 +76,21 @@ class BannersActions extends Component {
 						id="fill-all" 
 						type="file"/>
 				</div>
+				{ isTouched && <div className="banners__actions-item banners__actions-clear">
+					<button 
+						onClick={this.handleClickClearAll}
+						className="ui labeled icon button">
+						<i className="trash icon"></i>
+						Очистить все
+					</button>
+				</div> }
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-	// TO DO - map category to props from REDUX!
+	isTouched : state.banners.get('isTouched')
 });
 
 const mapDispatchToProps = dispatch => ({
