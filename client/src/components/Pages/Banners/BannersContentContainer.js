@@ -48,7 +48,9 @@ class BannersContentContainer extends Component {
 				<BannersContent 
 					category={slug}
 					items={banners}>
-					<BannersActions category={ slug } />				
+
+					<BannersActions />
+									
 				</BannersContent>	
 			</Fragment>
 		);

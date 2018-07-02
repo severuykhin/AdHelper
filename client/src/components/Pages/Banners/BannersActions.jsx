@@ -30,8 +30,8 @@ class BannersActions extends Component {
 	 * Clears all banners of active category
 	 */
 	handleClickClearAll = () => {
-		const { category } = this.props;		
-		this.props.setImageToAll('', category);
+		const { categorySlug } = this.props;		
+		this.props.setImageToAll('', categorySlug);
 	}
 
 	/**
@@ -42,12 +42,12 @@ class BannersActions extends Component {
 
 		const reader = new FileReader();
 		const component = this;
-		const { category } = this.props;
+		const { categorySlug } = this.props;
 
 		reader.readAsDataURL(file);
 		
 		reader.onload = function () {
-			component.props.setImageToAll(this.result, category);
+			component.props.setImageToAll(this.result, categorySlug);
 		}
 	}
 
@@ -90,7 +90,8 @@ class BannersActions extends Component {
 }
 
 const mapStateToProps = state => ({
-	isTouched : state.banners.get('isTouched')
+	categorySlug : state.banners.get('categorySlug'),
+	isTouched    : state.banners.get('isTouched')
 });
 
 const mapDispatchToProps = dispatch => ({
