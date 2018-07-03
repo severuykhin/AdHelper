@@ -81,7 +81,7 @@ class BannersActions extends Component {
 						onClick={this.handleClickClearAll}
 						className="ui labeled icon button">
 						<i className="trash icon"></i>
-						Очистить все
+						Очистить
 					</button>
 				</div> }
 			</div>

@@ -4,6 +4,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.container {
+  max-width: 990px;
+}
+
 .ui.button {
   font-family: 'Montserrat', sans-serif;  
 }
@@ -84,6 +88,11 @@ a.item.active div.ui.teal.label {
 
 input[type="file"] {
   display: none;
+}
+
+.banners__vk {
+  width: 990px;
+  margin: auto;
 }
 
 @keyframes animateIn {

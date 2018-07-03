@@ -96,9 +96,9 @@
 		{
 			"id"    : "1",
 			"category_id" : "1",
-			"title" : "Первое объявление",
+			"title" : "",
 			"slug"  : "pervoe",
-			"url"     : "site.ru",
+			"url"     : "",
 			"type"    : 1,
 			"img" : "",
 			"order"   : 1,			
@@ -110,12 +110,12 @@
 		{
 			"id"       : "2",
 			"category_id" : "1",
-			"title"   : "Второе объявление",
+			"title"   : "",
 			"slug"    : "vtoroe",
-			"url"     : "site.ru",
+			"url"     : "",
 			"img"     : "",
 			"order"   : 2,		
-			"imgType" : 1,
+			"imgType" : 2,
 			"type"    : 2,
 			"category" :  {
 				"name" : "vk"

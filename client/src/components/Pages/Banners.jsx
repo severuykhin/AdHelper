@@ -14,13 +14,13 @@ class Banners extends Component {
 		return (
 			<div className="banners content">
 				<div className="container">
+						<br/>
 					<div className="row">
-
-						<div className="col-xs-12 col-lg-2">
+						<div className="col-12">
 							<BannersNav items={categories} />
+							<br/>
 						</div>
-
-						<div className="col-xs-12 col-lg-10">
+						<div className="col-12">
 							<Route path='/banners/:category' component={BannersContentContainer} />
 						</div>
 

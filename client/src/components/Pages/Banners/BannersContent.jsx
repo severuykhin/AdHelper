@@ -1,27 +1,28 @@
 import React, { Component, Fragment } from 'react';
-import BannerContainer from '../../Banner/BannerContainer';
+import getTemplate from './BannersTemplates';
 
 class BannersContent extends Component {
 
-	buildItems = (items) => {
+	/**
+	 * @param { array } items - Banners to render
+	 * @param { string } category - Category slug
+	 */
+	buildItems = (items, category) => {
 
 		const banners = [...items].sort( (a,b) => a.order > b.order );
 
-		return banners.map( item => {
-			const { id } = item;
-			return <BannerContainer key={id} {...item}  />
-		})
+		return getTemplate(category)(banners);
 	}
 
 	render() {
 
-		const { items, children } = this.props;
+		const { items, children, category } = this.props;
 
 		return (
 			<Fragment>
 				<div className="banners-content">
 					{ children }
-					{ items && this.buildItems(items) }					
+					{ items && this.buildItems(items, category) }					
 				</div>
 			</Fragment>
 		);
