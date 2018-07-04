@@ -87,7 +87,7 @@ class Banner extends Component {
 		
 		const { id, type, category, img, imgType, imgWidth, imgHeight, title, text, url } = this.props;
 		const isImgSet = img ? true : false;
-		const metaInInfo = !!this.props.metaInInfo;
+		const metaInInfo = !!this.props.metaInInfo; // Got 0 or 1 - need true or false;
 		const className = `banner banner__item banner__${category.name}-${type}`;
 
 		return (

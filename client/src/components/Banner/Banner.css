@@ -115,6 +115,7 @@ button.banner__button.ui.button {
 .banner__img {
 	position: relative;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 .banner input[type="file"] {
@@ -537,6 +538,10 @@ button.banner__button.ui.button {
 	margin-bottom: 20px;
 }
 
+.fake-text__item:last-child {
+	margin-bottom: 0;
+}
+
 .fake-text__item:nth-child(4) {
 	width: 80%;
 }
@@ -549,12 +554,41 @@ button.banner__button.ui.button {
 	margin-bottom: 15px;
 }
 
+.banner__vk-block {
+	margin-bottom: 30px;
+}
+
+.banners__vk-aside {
+	padding-top: 15px;
+}
+
 .banners__vk-avatar {
 	padding: 15px;
 	margin-bottom: 15px;
 	background-color: rgba(229, 235, 241, 0.301);
 	border-radius: 3px;
 	box-shadow: 0 1px 0 0 rgb(215, 216, 219), 0 0 0 1px rgba(227, 228, 232, 0.557);
+}
+
+.banner__vk-slider {
+	overflow: hidden;
+	background: rgba(248, 248, 248, 0.322);
+	border-radius: 2px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+}
+
+.banner__vk-slider-info {
+	padding: 15px;
+}
+
+.banner__vk-slider-items {
+	padding-left: 15px;
+	display: flex;
+	flex-wrap: no-wrap;
+}
+
+.banner__vk-slider-item:last-child {
+	opacity: .5;
 }
 
 /* VK - 1 */
@@ -634,6 +668,57 @@ button.banner__button.ui.button {
 	font-weight: 400;
 	color: #939699;
 }
+
+/* VK - 4 */
+
+
+.banner__vk-4 {
+	box-sizing: border-box;
+	flex-shrink: 0;
+	width: 200px;
+	height: 305px;
+	margin: 0px 15px 15px 0;
+	border-radius: 2px;
+	border: 1px solid rgba(153, 153, 153, 0.178);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.02), 0 4px 4px 0 rgba(0,0,0,.04);
+}
+
+.banner__vk-4 .banner__button {
+	bottom: 10px;
+	left: 10px;
+}
+
+.banner__vk-4 .banner__delete {
+	left: 52px;
+}
+
+.banner__vk-4 .banner__inner {
+	height: 305px;
+}
+
+.banner__vk-4 .banner__info {
+	padding: 13px;
+}
+
+.banner__vk-4 .banner__title {
+	font-size: 13px;
+	font-weight: 600;
+	color: #000;
+}
+
+.banner__vk-4 .banner__img {
+	height: 200px;
+}
+
+.banner__vk-4 .banner__img-inner {
+	height: 200px;
+}
+
+.banner__vk-4 .banner__img-inner_active {
+	background-size: contain !important;
+}
+
+
 
 @keyframes translateUp {
 	0% {

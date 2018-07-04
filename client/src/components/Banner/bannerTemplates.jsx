@@ -7,6 +7,12 @@ import React from 'react';
  */
 export default function getBannerTemplate(type) {
 	const types = {
+		
+		/**
+		 * @param { string } src
+		 * @param { string } bgSize
+		 * @param { string } className
+		 */
 		1 : (src, bgSize, className) => {
 			return <div className={className} 
 						style={{
@@ -17,6 +23,8 @@ export default function getBannerTemplate(type) {
 
 		/**
 		 * @param { string } src
+		 * @param { string } bgSize
+		 * @param { string } className
 		 */
 		2 : (src, bgSize, className) => {
 

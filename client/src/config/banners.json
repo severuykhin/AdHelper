@@ -161,6 +161,23 @@
 			"category" :  {
 				"name" : "vk"
 			}
+		},
+		{
+			"id"       : "4",
+			"category_id" : "2",
+			"title"   : "Баннер в слайдере",
+			"slug"    : "fourth",
+			"url"     : "",
+			"img"     : "",
+			"imgType" : 1,
+			"imgWidth"  : 200,
+			"imgHeight" : 200,
+			"order"   : 4,		
+			"type"    : 4,
+			"metaInInfo" : 1,		
+			"category" :  {
+				"name" : "vk"
+			}
 		}	
 	]
 }
