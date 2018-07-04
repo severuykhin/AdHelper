@@ -11,6 +11,16 @@
 	transition: transform 100ms ease, opacity 100ms ease;
 }
 
+.banner:hover .banner__img-size-width {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.banner:hover .banner__img-size-height {
+	transform: translateX(0);
+	opacity: 1;
+}
+
 .banner__item {
 	animation-name: showIn;
 	animation-duration: 200ms;
@@ -152,6 +162,9 @@ button.banner__button.ui.button {
 	bottom: 10px;
 	left: 0;
 	text-align: center;
+	transition: opacity 300ms ease, transform 200ms ease;
+	transform: translateY(30px);
+	opacity: 0;
 }
 
 .banner__img-size-height {
@@ -162,6 +175,9 @@ button.banner__button.ui.button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: opacity 200ms ease, transform 400ms ease;	
+	transform: translateX(30px);
+	opacity: 0;
 }
 
 .banner__img-size-height span {
@@ -454,7 +470,15 @@ button.banner__button.ui.button {
 	width: 240px;
 	border: 1px solid rgb(204, 204, 204);
 	box-sizing: border-box;	
-} 
+}
+
+.banner__rsya-6 .banner__img-size-width {
+	transform: translateY(0);
+}
+
+.banner__rsya-6 .banner__img-size-height {
+	transform: translateX(0);
+}
 
 .banner__rsya-6 .banner__inner {
 	display: flex;
@@ -466,6 +490,7 @@ button.banner__button.ui.button {
 	margin-right: 10px;
 	flex-shrink: 1;
 	width: auto;
+	overflow: visible;
 }
 
 .banner__rsya-6 .banner__img img {

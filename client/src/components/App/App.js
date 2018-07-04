@@ -19,7 +19,7 @@ class App extends Component {
             {/* <Header /> */}
 
             <Switch>  
-              <Route path="/" exact component={Index} />
+              <Route path="/" exact component={Banners} />
               <Route path="/banners" exact component={Banners} />
 							<Route path='/banners/:category' component={Banners} />
               <Route path='/user/:action' component={User} />              
