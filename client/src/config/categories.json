@@ -1,14 +1,14 @@
 [
 	{
-		"id"    : 1,
-		"count" : 3,
-		"name"  : "VK",
-		"slug"  : "vk"
-	},
-	{
 		"id"    : 2,
 		"count" : 10,
 		"name"  : "РСЯ",
 		"slug"  : "rsya"
+	},
+	{
+		"id"    : 1,
+		"count" : 3,
+		"name"  : "VK",
+		"slug"  : "vk"
 	}
 ]

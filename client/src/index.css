@@ -8,16 +8,41 @@ body {
   max-width: 990px;
 }
 
-.ui.button {
-  font-family: 'Montserrat', sans-serif;  
-}
-
 a {
   font-family: 'Montserrat', sans-serif !important;
 }
 
+
+.ui.button {
+  background: rgb(220, 227, 240) none;
+  font-weight: 500;
+}
+
+.ui.button:hover, .ui.button:focus {
+  background: rgb(204, 214, 230) none;  
+}
+
+.ui.button, .header.item {
+  font-family: 'Montserrat', sans-serif;  
+}
+
+
+
+.banners__nav {
+  margin-bottom: 30px;
+}
+
+
 .ui.menu {
   border-radius: 0px;
+}
+
+.ui.menu .active.item:hover {
+  background-color: rgba(229, 235, 241, 0.52);  
+}
+
+.ui.menu .active.item {
+  background-color: rgba(229, 235, 241, 0.52);
 }
 
 .ui.inverted.menu .item {

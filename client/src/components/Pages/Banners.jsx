@@ -18,7 +18,6 @@ class Banners extends Component {
 					<div className="row">
 						<div className="col-12">
 							<BannersNav items={categories} />
-							<br/>
 						</div>
 						<div className="col-12">
 							<Route path='/banners/:category' component={BannersContentContainer} />

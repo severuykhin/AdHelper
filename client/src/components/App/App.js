@@ -16,7 +16,7 @@ class App extends Component {
         <BrowserRouter>
           <Fragment>
 
-            <Header />
+            {/* <Header /> */}
 
             <Switch>  
               <Route path="/" exact component={Index} />

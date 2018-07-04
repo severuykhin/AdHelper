@@ -13,7 +13,7 @@ const BannersNav = (props) => {
 					to={ `/${moduleName}/${item.slug}` } 
 					className="item"
 					activeClassName="active">
-					<div className="ui teal label">{ item.count }</div>
+					{/* <div className="ui teal label">{ item.count }</div> */}
 					{ item.name }
 				</NavLink>
 			); 
@@ -21,8 +21,11 @@ const BannersNav = (props) => {
 	}
 
 	return (
-		<div>
-			<div className="ui vertical menu">
+		<div className="banners__nav">
+			<div className="ui menu">
+				<div className="header item">
+					Баннеры
+				</div>
 				{ buildItems(props.items) }
 			</div>		
 		</div>

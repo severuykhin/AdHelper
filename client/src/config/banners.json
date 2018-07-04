@@ -6,12 +6,15 @@
 		"slug"  : "pervoe",
 		"texttop" : "",
 		"url"     : "site.ru",
-		"type"    : 1,
 		"className" : "rsya-1",
 		"img" : "",
-		"imgType" : 1,
+		"imgType"   : 1,
+		"imgWidth"  : 355,
+		"imgHeight" : 290,
 		"order"   : 3,
 		"text" : "",
+		"type"    : 1,
+		"metaInInfo" : 1,				
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -23,10 +26,13 @@
 		"slug"  : "vtoroe",
 		"url"     : "site.ru",
 		"img" : "",
-		"imgType" : 1,		
-		"type"    : 2,
-		"order"   : 1,		
+		"imgType" : 1,
+		"imgWidth"  : 355,
+		"imgHeight" : 290,		
+		"order"   : 1,	
 		"text" : "",		
+		"type"    : 2,
+		"metaInInfo" : 1,			
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -39,9 +45,12 @@
 		"url"     : "site.ru",
 		"img" : "",
 		"imgType" : 1,
+		"imgWidth"  : 355,
+		"imgHeight" : 290,
 		"order"   : 2,	
 		"text" : "",			
 		"type"    : 3,
+		"metaInInfo" : 1,		
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -54,9 +63,12 @@
 		"url"     : "site.ru",
 		"img" : "",
 		"imgType" : 2,
+		"imgWidth"  : 355,
+		"imgHeight" : 290,
 		"order"   : 4,
 		"text" : "Текст баннера в несколько строк. Lorem ipsum lorem ipsum",		
 		"type"    : 4,
+		"metaInInfo" : 1,		
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -69,9 +81,12 @@
 		"url"     : "site.ru",
 		"img" : "",
 		"imgType" : 2,
+		"imgWidth"  : 355,
+		"imgHeight" : 290,
 		"order"   : 5,
 		"text" : "Текст баннера в несколько строк. Lorem ipsum lorem ipsum",		
 		"type"    : 5,
+		"metaInInfo" : 1,		
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -84,9 +99,12 @@
 		"url"     : "site.ru",
 		"img" : "",
 		"imgType" : 2,
+		"imgWidth"  : 355,
+		"imgHeight" : 290,
 		"order"   : 6,
 		"text" : "Текст баннера в несколько строк.",		
 		"type"    : 6,
+		"metaInInfo" : 0,		
 		"category" :  {
 			"name" : "rsya"
 		}
@@ -95,28 +113,51 @@
 	"vk" : [
 		{
 			"id"    : "1",
-			"category_id" : "1",
+			"category_id" : "2",
 			"title" : "",
 			"slug"  : "pervoe",
 			"url"     : "",
-			"type"    : 1,
 			"img" : "",
+			"imgType" : 1,
+			"imgWidth"  : 355,
+			"imgHeight" : 290,			
 			"order"   : 1,			
-			"imgType" : 1,			
+			"type"    : 1,
+			"metaInInfo" : 1,					
 			"category" :  {
 				"name" : "vk"
 			}
 		},
 		{
 			"id"       : "2",
-			"category_id" : "1",
+			"category_id" : "2",
 			"title"   : "",
 			"slug"    : "vtoroe",
 			"url"     : "",
 			"img"     : "",
-			"order"   : 2,		
 			"imgType" : 2,
+			"imgWidth"  : 355,
+			"imgHeight" : 290,
+			"order"   : 2,		
 			"type"    : 2,
+			"metaInInfo" : 1,					
+			"category" :  {
+				"name" : "vk"
+			}
+		},
+		{
+			"id"       : "3",
+			"category_id" : "2",
+			"title"   : "Баннер в сайдбаре",
+			"slug"    : "three",
+			"url"     : "site.ru",
+			"img"     : "",
+			"imgType" : 1,
+			"imgWidth"  : 355,
+			"imgHeight" : 290,
+			"order"   : 3,		
+			"type"    : 3,
+			"metaInInfo" : 1,		
 			"category" :  {
 				"name" : "vk"
 			}

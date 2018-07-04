@@ -22,11 +22,15 @@ export default function getTemplate(category) {
 
 				const head   = banners[0] && <BannerContainer key={banners[0].id} {...banners[0]}  />;
 				const avatar = banners[1] && <BannerContainer key={banners[1].id} {...banners[1]}  />;
+				const aside  = banners[2] && <BannerContainer key={banners[2].id} {...banners[2]}  />;
 
 				return (
 					<div className="banners__vk">
 						<div className="banners__vk-left">
 							{ generateFakeText(8) }
+							<div className="banners__vk-aside">
+								{ aside }
+							</div>	
 						</div>
 						<div className="banners__vk-right">
 							<div className="banners__vk-head">

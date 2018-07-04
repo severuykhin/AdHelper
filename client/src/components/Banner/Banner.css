@@ -134,10 +134,38 @@ button.banner__button.ui.button {
 .banner__img-inner {
 	position: relative;
 	background-position: center;
-	background-color: rgb(241, 238, 238);
+	background-color: rgba(229, 235, 241, 0.52);
 	background-repeat: no-repeat;
 	z-index: 2;
 	box-sizing: border-box;
+}
+
+.banner__img-size {
+	width: 100%;
+	font-size: 13px;
+	position: absolute;
+	z-index: 3;
+}
+
+.banner__img-size-width {
+	bottom: 10px;
+	left: 0;
+	text-align: center;
+}
+
+.banner__img-size-height {
+	right: 10px;
+	top: 0;
+	width: 15px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banner__img-size-height span {
+	display: block;
+	transform: rotate(270deg);
 }
 
 .banner:hover  .banner__button{
@@ -563,6 +591,48 @@ button.banner__button.ui.button {
 
 .banner__vk-2 .banner__img img {
 	width: 100%;
+}
+
+/* VK - 3 */
+
+
+.banner__vk-3 {
+	width: 145px;
+	height: 165px;
+	margin: auto;
+}
+
+.banner__vk-3 .banner__img {
+	width: 100%;
+	z-index: 3;
+	margin-bottom: 7px;
+}
+
+.banner__vk-3 .banner__info {
+	z-index: 2;
+	position: relative;
+}
+
+.banner__vk-3 .banner__img-inner {
+	width: 100%;
+	height: 165px;
+	z-index: 3;
+}
+
+.banner__vk-3 .banner__file, .banner__vk-3 .banner__delete {
+	z-index: 3;
+}
+
+.banner__vk-3 .banner__title {
+	font-size: 12px;
+	font-weight: 700;
+	color: #42648b;
+}
+
+.banner__vk-3 .banner__url {
+	font-size: 12px;
+	font-weight: 400;
+	color: #939699;
 }
 
 @keyframes translateUp {

@@ -45,6 +45,15 @@ class Banner extends Component {
 		return <div className="banner__url">{ url }</div>
 	}
 
+	getSizes = (width, height) => {
+		return (
+			<Fragment>
+				<div className="banner__img-size banner__img-size-width"><span>{ width }</span></div>
+				<div className="banner__img-size banner__img-size-height"><span>{ height }</span></div>
+			</Fragment>
+		);
+	}
+
 
 	/**
 	 * Get banner file upload layout
@@ -76,23 +85,23 @@ class Banner extends Component {
 
 	render() {
 		
-		const { id, type, category, img, imgType, title, text, url } = this.props;
+		const { id, type, category, img, imgType, imgWidth, imgHeight, title, text, url } = this.props;
 		const isImgSet = img ? true : false;
+		const metaInInfo = !!this.props.metaInInfo;
 		const className = `banner banner__item banner__${category.name}-${type}`;
-
-		const metaInInfo = (type !== 6) && (category.name === 'rsya');
 
 		return (
 			<div className={className}>
 				{ title && !metaInInfo && <div className="banner__title"><span>{ title }</span></div>}				
 				<div className="banner__inner">
 					<div className="banner__img">
-						{this.getImage(img, imgType)}
+						{ this.getImage(img, imgType)}
+						{ this.getSizes(imgWidth, imgHeight) }
 					</div>
 					<div className="banner__info">
-						{ title && metaInInfo && <div className="banner__title"><span>{ title }</span></div>}
+						{ metaInInfo && title && <div className="banner__title"><span>{ title }</span></div>}
 						{ text && <div className="banner__text">{ text }</div> }
-						{ url && metaInInfo && this.getUrl(url) }
+						{ metaInInfo && url && this.getUrl(url) }
 					</div>
 				</div>
 				{ url && !metaInInfo && this.getUrl(url) }
